@@ -1,0 +1,71 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: url(background.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.container {
+  width: 100lvw;
+  height: 100lvh;
+
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.leftsection {
+}
+.centersection {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.decoration {
+  position: relative;
+}
+.sword {
+  position: absolute;
+  top: -90px;
+  left: 935px;
+  z-index: -1;
+}
+.brush {
+  position: absolute;
+  top: -90px;
+  left: -40px;
+  z-index: -1;
+}
+.canvas {
+  width: 968px;
+  height: 647px;
+
+  border: 16px solid #2e354f;
+  background: #d9d9d9;
+  border-radius: 24px;
+}
+.outline {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 32px;
+
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  background: linear-gradient(to right, #5450db, #7854d3) border-box;
+  border: 8px solid transparent;
+}
+@media only screen and (max-width: 1000px) {
+  .canvas {
+    width: 484px;
+    height: 647px;
+  }
+}
+.rightsection {
+}
