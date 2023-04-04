@@ -1,0 +1,17 @@
+@import "styles/utilties/variables/variables.scss";
+.input{
+  all: unset;
+  margin: 20px;
+  padding: 5px;
+  font-size: 14px;
+  background-color: $bg;
+  color: $font-color-light;
+  outline: $border;
+  border-radius: 8px;
+  &:focus{
+    outline: $border;
+  }
+  &::placeholder{
+    color: $font-color-light;
+  }
+}
