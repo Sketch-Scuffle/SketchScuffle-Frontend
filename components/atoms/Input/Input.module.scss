@@ -1,13 +1,25 @@
 @import "styles/utilties/variables/variables.scss";
 .input{
   all: unset;
+  width: 252px;
+  height: 38px;
+
   margin: 20px;
-  padding: 5px;
+
+  padding-left: 18px;
+  box-sizing: border-box;
+
   font-size: 14px;
+  font-weight: 400;
+
   background-color: $bg;
   color: $font-color-light;
+
   outline: $border;
   border-radius: 8px;
+
+  filter: drop-shadow($shadow);
+
   &:focus{
     outline: $border;
   }
