@@ -1,0 +1,69 @@
+@import "styles/utilties/variables/variables.scss";
+.sectionContainer{
+  min-width: 370px;
+  max-width: 370px;
+  height: max-content;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 10px 40px 10px 40px ;
+
+  background-color: $component-background;
+  border: $border;
+
+  &.left{
+    border-radius: 0 32px 32px 0;
+  }
+  &.right{
+    border-radius: 32px 0 0 32px;
+  }
+
+}
+.titleContainer{
+  position: relative;
+  z-index: -1;
+
+  display: flex;
+
+}
+.border{
+  min-width: 180px;
+  min-height: 40px;
+
+  position: absolute;
+  left: calc((370px - 182px)/2);
+  z-index: 1;
+
+  border-radius: 8px 8px 0 0;
+  background: $gradient;
+
+
+}
+.title{
+  min-width: 170px;
+  min-height: 32px;
+  width: fit-content;
+  height: fit-content;
+
+  position: relative;
+  top: 3px;
+  left: calc((370px - 172px)/2);
+  z-index: 2;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: $bg;
+  border-radius: 6px 6px 0 0;
+  color: $gradient;
+
+  & p{
+    background: -webkit-linear-gradient(135deg, #5450DB 0%, #7854D3 100%);
+    background-clip: text;
+    color: transparent;
+  }
+
+}
