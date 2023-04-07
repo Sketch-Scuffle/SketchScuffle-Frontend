@@ -1,0 +1,39 @@
+@import "styles/utilties/variables/variables.scss";
+.chatBubbleContainer{
+  width: fit-content;
+  max-width: 134px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.chatBubbleInfo{
+  display: flex;
+
+  & p{
+    color: $font-color-dark;
+    font-size: 10px;
+    margin-right: 2px;
+  }
+  &.variant1{
+    align-self: start;
+  }
+  &.variant2{
+    align-self: end;
+  }
+}
+.chatBubbleText{
+  padding: 10px;
+  color: $font-color-light;
+  filter: drop-shadow($shadow);
+  font-size: 16px;
+
+  word-break: break-word;
+  &.variant1{
+    background: $gradient;
+    border-radius: 16px 16px 0 16px;
+  }
+  &.variant2{
+    background: $bg;
+    border-radius: 16px 16px 16px 0;
+  }
+}
