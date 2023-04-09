@@ -12,19 +12,20 @@ type Point = {
     y: number
 }
 
-export interface CordsSet {
+export interface LinePoints {
     start: Point,
     end: Point
 }
 
 export interface CanvasProps {
+    // Line drawn on change
+    lineToDraw?: LinePoints | null;
     width?: number;
     height?: number;
-    cordsDraw: CordsSet | null;
-    canDraw?: boolean;
+    disabled?: boolean;
     color?: string;
     lineWidth?: number;
-    onDraw?: (cords: CordsSet) => void;
+    onDraw?: (cords: LinePoints) => void;
     toolType?: ToolType;
 }
 
@@ -37,28 +38,43 @@ function getPixel(pixelData: any, x: number, y: number) {
     }
 }
 
-export default function Canvas({width=0, height=0, cordsDraw, canDraw=false, color='#000000', lineWidth=1, onDraw, toolType=ToolType.Brush}: CanvasProps) {
+export default function Canvas({
+    width = 0,
+    height = 0,
+    lineToDraw = null,
+    disabled = false,
+    color = '#000000',
+    lineWidth =1 ,
+    onDraw = () => {},
+    toolType = ToolType.Brush
+}: CanvasProps) {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const contextRef = useRef<CanvasRenderingContext2D | null>(null);
     const [isDrawing, setIsDrawing] = useState(false);
     const [prevCords, setPrevCords] = useState<Point| null>(null);
 
+
+    // Inital effect
     useEffect(() => {
         const canvas = canvasRef.current;
-        if (!canvas) { return; }
+        if (!canvas) {
+            return;
+        }
 
         const context = canvas.getContext('2d', { willReadFrequently: true });
-        if (!context) { return; }
+        if (!context) {
+            return;
+        }
 
+        // Context initial settings
         context.lineCap = 'round';
         context.lineJoin = 'round';
-        context.strokeStyle = color;
-        context.lineWidth = lineWidth;
         context.imageSmoothingEnabled = true;
         contextRef.current = context;
-        console.log(context)
+
     }, [])
 
+    // Changeable context settings
     useEffect(() => {
         if (!contextRef.current) {
             return;
@@ -68,24 +84,19 @@ export default function Canvas({width=0, height=0, cordsDraw, canDraw=false, col
         contextRef.current.lineWidth = lineWidth;
     }, [color, lineWidth])
 
+    // Watch lineToDraw changes, to render it onto canvas
     useEffect(() => {
-        if (cordsDraw) { draw(cordsDraw); }
-    }, [cordsDraw])
-
+        if (lineToDraw) { draw(lineToDraw); }
+    }, [lineToDraw])
 
     const fill = (ctx: CanvasRenderingContext2D, point: Point) => {
         const fillColor = parseInt('0xff' + color?.slice(1).match(/.{1,2}/g)!.reverse().join(""), 16);
-        console.log(color);
-        console.log('0xff' + color?.slice(1).match(/.{1,2}/g)!.reverse().join(""))
-
         const imageData = ctx.getImageData(0, 0, width, height)!;
         const pixelData = {
             width: imageData.width,
             height: imageData.height,
             data: new Uint32Array(imageData.data.buffer)
         }
-
-        console.log(imageData);
 
         const targetColor = getPixel(pixelData, point.x, point.y);
         if (targetColor !== fillColor) {
@@ -110,7 +121,7 @@ export default function Canvas({width=0, height=0, cordsDraw, canDraw=false, col
 
 
     const handleMouseDown = (e: MouseEvent<HTMLCanvasElement>) => {
-        if (!canDraw) {
+        if (!disabled) {
             return;
         }
 
@@ -177,7 +188,7 @@ export default function Canvas({width=0, height=0, cordsDraw, canDraw=false, col
         setPrevCords(cords.end);
     }
 
-    const draw = (cordsDraw: CordsSet) => {
+    const draw = (cordsDraw: LinePoints) => {
         contextRef.current?.beginPath();
         contextRef.current?.moveTo(cordsDraw.start.x * width, cordsDraw.start.y * height);
         contextRef.current?.lineTo(cordsDraw.end.x * width, cordsDraw.end.y * height);

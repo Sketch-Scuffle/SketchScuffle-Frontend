@@ -1,9 +1,9 @@
 import ChatBubble from "@/components/atoms/Chat-Bubble/Chat-Bubble";
-import Canvas, {CordsSet, ToolType} from '@/components/atoms/Canvas/Canvas';
+import Canvas, {LinePoints, ToolType} from '@/components/atoms/Canvas/Canvas';
 import {ChangeEvent, useEffect, useState} from 'react';
 
 export default function GamePage () {
-    const [cordsDraw, setCordsDraw] = useState<CordsSet | null>(null);
+    const [lineToDraw, setLineToDraw] = useState<LinePoints | null>(null);
     const [canDraw, setCanDraw] = useState(false);
     const [color, setColor] = useState("#000000");
     const [lineWidth, setLineWidth] = useState(1);
@@ -15,13 +15,13 @@ export default function GamePage () {
             height={900}
             lineWidth={lineWidth}
             color={color}
-            canDraw={canDraw}
-            cordsDraw={cordsDraw}
+            disabled={canDraw}
+            lineToDraw={lineToDraw}
             toolType={toolType}
         />
 
         <button onClick={() => setInterval(() => {
-            setCordsDraw({
+            setLineToDraw({
                 start: {
                     x: Math.random(),
                     y: Math.random()
