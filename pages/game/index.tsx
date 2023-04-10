@@ -1,9 +1,7 @@
-import Section from "@/components/atoms/Section/Section";
-
+import Button from "@/components/atoms/Button/Button";
+import SendSVG from '@/public/icons/send.svg'
 export default function GamePage () {
     return (
-        <Section title={true} titleText={'Next'} side={'left'} >
-            No elo
-        </Section>
+        <Button size={"medium"} variant={"signin"}><p>Join</p></Button>
     )
 }

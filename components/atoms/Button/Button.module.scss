@@ -1,1 +1,87 @@
 @import "styles/utilties/variables/variables.scss";
+
+.buttonBorder{
+  width: fit-content;
+  height: fit-content;
+
+  border-radius: 8px;
+
+  &:has(.google, .signin, .login){
+    border: 0 solid transparent;
+  }
+
+  &:has(.variant1) {
+    border: 2px solid transparent;
+    background: $gradient no-repeat fixed;
+  }
+
+  &:has(.variant2){
+    border: 2px solid $bg;
+  }
+}
+
+.buttonWrapper{
+
+  word-break: keep-all;
+  all: unset;
+  border-radius: 6px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: fit-content;
+  height: fit-content;
+
+  &.variant1{
+    background: $bg;
+  }
+
+  &.variant2{
+    background: $gradient no-repeat fixed;
+  }
+
+  &.signin{
+    background: $gradient no-repeat fixed;
+  }
+
+  &.login{
+    background: $bg;
+    & p{
+      background: $bg;
+      background-clip: text;
+      color: transparent;
+    }
+  }
+  &.google{
+
+
+  }
+
+  //size
+  &.small{
+
+    padding: 9px 5px;
+  }
+
+  &.medium{
+
+    padding: 8px 25px;
+  }
+
+  &.large{
+
+    padding: 11px;
+  }
+
+  &.xlarge{
+    font-size: 16px;
+    padding: 15px 50px;
+  }
+
+  &.xxlarge{
+
+    padding: 17px 50px;
+  }
+}
+
