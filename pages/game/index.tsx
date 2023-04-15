@@ -1,41 +1,26 @@
-import ChatBubble from "@/components/atoms/Chat-Bubble/Chat-Bubble";
-import Canvas, {LinePoints, ToolType} from '@/components/atoms/Canvas/Canvas';
-import {ChangeEvent, useEffect, useState} from 'react';
+import DrawableCanvas from '@/components/atoms/Canvas/DrawableCanvas';
+import {ChangeEvent, useRef, useState} from 'react';
+import {ToolType} from '@/types/drawableCanvas.types';
 
 export default function GamePage () {
-    const [lineToDraw, setLineToDraw] = useState<LinePoints | null>(null);
-    const [canDraw, setCanDraw] = useState(false);
+    const canvasRef = useRef(null);
+    const [disabled, setDisabled] = useState(false);
+    const [toolType, setToolType] = useState(ToolType.Brush)
+    const [lineWidth, setLineWidth] = useState(5);
     const [color, setColor] = useState("#000000");
-    const [lineWidth, setLineWidth] = useState(1);
-    const [toolType, setToolType] = useState<ToolType>(ToolType.Brush);
 
     return (<>
-        <Canvas
+        <DrawableCanvas
+            refs={canvasRef}
             width={1500}
             height={900}
-            lineWidth={lineWidth}
-            color={color}
-            disabled={canDraw}
-            lineToDraw={lineToDraw}
             toolType={toolType}
+            color={color}
+            lineWidth={lineWidth}
+            disabled={disabled}
         />
 
-        <button onClick={() => setInterval(() => {
-            setLineToDraw({
-                start: {
-                    x: Math.random(),
-                    y: Math.random()
-                },
-                end: {
-                    x: Math.random(),
-                    y: Math.random()
-                }
-            })
-        }, 1000)}>
-            Draw test
-        </button>
-
-        <button onClick={() => setCanDraw(!canDraw)}>
+        <button onClick={() => setDisabled(!disabled)}>
             Set Draw
         </button>
 
@@ -52,10 +37,10 @@ export default function GamePage () {
             //@ts-ignore;
             console.log(e.nativeEvent.target.value);
             //@ts-ignore
-            setToolType(Number(e.nativeEvent.target.value));
+            setToolType(e.nativeEvent.target.value)
         }}>
-            <option value={ToolType.Brush}>Brush</option>
-            <option value={ToolType.Fill}>Fill</option>
+            <option value={"brush"}>Brush</option>
+            <option value={"fill"}>Fill</option>
         </select>
     </>)
 }
