@@ -33,12 +33,14 @@
   width: fit-content;
   height: fit-content;
 
+  color: #CACACD;
   &.variant1{
     background: $bg;
   }
 
   &.variant2{
     background: $gradient no-repeat fixed;
+    padding: 0;
   }
 
   &.signin{
@@ -55,7 +57,7 @@
   }
   &.google{
 
-
+    background: #FFFFFF;
   }
 
   //size

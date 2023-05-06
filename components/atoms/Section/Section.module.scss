@@ -61,9 +61,10 @@
   color: $gradient;
 
   & p{
-    background: -webkit-linear-gradient(135deg, #5450DB 0%, #7854D3 100%);
-    background-clip: text;
     color: transparent;
+    background: linear-gradient(135deg, #5450DB 0%, #7854D3 100%);
+    -webkit-background-clip: text;
+
   }
 
 }

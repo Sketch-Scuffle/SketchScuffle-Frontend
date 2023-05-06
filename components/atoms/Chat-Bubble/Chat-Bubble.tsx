@@ -7,7 +7,7 @@ interface ChatBubbleProps{
     variant: 1 | 2
 }
 
-export default function ChatBubble({owner,text,date,variant}:ChatBubbleProps){
+export default function ChatBubble({owner="Sketch",text,date,variant}:ChatBubbleProps){
     return(
         <div className={styles.chatBubbleContainer}>
             <div className={cs(
