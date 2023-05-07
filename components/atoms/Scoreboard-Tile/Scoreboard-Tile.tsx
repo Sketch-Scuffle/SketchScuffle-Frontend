@@ -6,11 +6,10 @@ export interface ScoreboardTileProps {
     points: number,
     active: boolean,
     me: boolean,
-    drawer: boolean
-
+    drawer: boolean,
+    nextdrawer: boolean,
 }
-export default function ScoreboardTile({img, name, points, active, me, drawer}:ScoreboardTileProps) {
-    console.log(img, name, points, active, me, drawer)
+export default function ScoreboardTile({img, name, points, active, me, drawer, nextdrawer}:ScoreboardTileProps) {
     return(
         <>
         {me &&
@@ -38,8 +37,12 @@ export default function ScoreboardTile({img, name, points, active, me, drawer}:S
                     }
                 </div>
                 <div className={styles.name}>{name}</div>
-                {drawer&&
-                    <Image src="/icons/brush2.svg" alt="" width={16} height={16}/>
+                {!nextdrawer &&
+                    <div style={{width: '16px' , height: '16px'}}>
+                        {drawer&&
+                            <Image src="/icons/brush2.svg" alt="" width={16} height={16}/>
+                        }
+                    </div>
                 }
                 <div className={styles.pointsWrapper}>
                     {points}
