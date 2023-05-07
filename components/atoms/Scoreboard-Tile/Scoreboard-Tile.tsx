@@ -1,7 +1,5 @@
 import styles from "@/components/atoms/Scoreboard-Tile/Scoreboard-Tile.module.scss";
-import cs from "classnames";
-import BrushSVG from "@/public/icons/brush2.svg";
-
+import Image from "next/image";
 export interface ScoreboardTileProps {
     img: string,
     name: string,
@@ -12,6 +10,7 @@ export interface ScoreboardTileProps {
 
 }
 export default function ScoreboardTile({img, name, points, active, me, drawer}:ScoreboardTileProps) {
+    console.log(img, name, points, active, me, drawer)
     return(
         <>
         {me &&
@@ -23,8 +22,8 @@ export default function ScoreboardTile({img, name, points, active, me, drawer}:S
                     }
                 </div>
                 <div className={styles.name}>{name}</div>
-                {drawer&&
-                    <BrushSVG/>
+                {drawer &&
+                    <Image src="/icons/brush2.svg" alt="" width={16} height={16}/>
                 }
                 <div className={styles.pointsWrapper}>
                     {points}
@@ -40,7 +39,7 @@ export default function ScoreboardTile({img, name, points, active, me, drawer}:S
                 </div>
                 <div className={styles.name}>{name}</div>
                 {drawer&&
-                    <BrushSVG/>
+                    <Image src="/icons/brush2.svg" alt="" width={16} height={16}/>
                 }
                 <div className={styles.pointsWrapper}>
                     {points}
@@ -48,5 +47,5 @@ export default function ScoreboardTile({img, name, points, active, me, drawer}:S
             </div>
 
         </>
-    );
+    )
 }
