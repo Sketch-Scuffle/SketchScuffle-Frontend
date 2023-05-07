@@ -48,6 +48,8 @@ export default function GamePage () {
             img={"https://steamuserimages-a.akamaihd.net/ugc/964228526733419342/232B952368114C36A8C3550606155E3C4F9A99C1/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false"}
             me={false}
             name={"Ziutek"}
-            points={50} />
+            points={50}
+            nextdrawer={false}
+        />
     </>)
 }
