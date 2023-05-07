@@ -1,0 +1,57 @@
+@import "styles/utilties/variables/variables.scss";
+.scoreboardTileWrapper{
+  background: $bg;
+  width: 288px;
+  height: 58px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  z-index: 0;
+  border: 2px solid transparent;
+  border-radius: 16px;
+}
+.border{
+  max-width: min-content;
+  background: $gradient;
+  border: 2px solid transparent;
+  border-radius: 18px;
+}
+
+.image{
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  position: relative;
+  z-index: 1;
+  background-position: center;
+  background-size: cover;
+}
+
+.active{
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #83D85C;
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  z-index: 0;
+}
+
+.name{
+  font-size: 14px;
+  font-weight: bold;
+  color: #FFFFFF;
+}
+
+.pointsWrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 52px;
+  height: 25px;
+  background: $gradient;
+  border-radius: 8px;
+  font-size: 14px;
+}
