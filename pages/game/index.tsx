@@ -1,7 +1,7 @@
 import DrawableCanvas from '@/components/atoms/Canvas/DrawableCanvas';
 import {ChangeEvent, useRef, useState} from 'react';
 import {ToolType} from '@/types/drawableCanvas.types';
-import ScoreboardTile from "@/components/atoms/Scoreboard-Tile/Scoreboard-Tile";
+import Timer from "@/components/atoms/Timer/Timer";
 export default function GamePage () {
     const canvasRef = useRef(null);
     const [disabled, setDisabled] = useState(false);
@@ -42,14 +42,6 @@ export default function GamePage () {
             <option value={"brush"}>Brush</option>
             <option value={"fill"}>Fill</option>
         </select>
-        <ScoreboardTile
-            active={true}
-            drawer={true}
-            img={"https://steamuserimages-a.akamaihd.net/ugc/964228526733419342/232B952368114C36A8C3550606155E3C4F9A99C1/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false"}
-            me={false}
-            name={"Ziutek"}
-            points={50}
-            nextdrawer={false}
-        />
+        <Timer secondsLeft={20}/>
     </>)
 }
