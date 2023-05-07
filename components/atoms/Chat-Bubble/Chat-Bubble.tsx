@@ -4,7 +4,7 @@ interface ChatBubbleProps{
     owner: string
     text: string
     date: Date
-    variant: 1 | 2
+    variant: "myBubble" | "someoneBubble"
 }
 
 export default function ChatBubble({owner="Sketch",text,date,variant}:ChatBubbleProps){
@@ -13,8 +13,8 @@ export default function ChatBubble({owner="Sketch",text,date,variant}:ChatBubble
             <div className={cs(
                 styles.chatBubbleInfo,
                 {
-                    [styles.variant1]: variant === 1,
-                    [styles.variant2]: variant === 2,
+                    [styles.variant1]: variant === "myBubble",
+                    [styles.variant2]: variant === "someoneBubble",
                 }
             )}>
                 <p>{owner}</p>
@@ -23,8 +23,8 @@ export default function ChatBubble({owner="Sketch",text,date,variant}:ChatBubble
             <div className={cs(
                 styles.chatBubbleText,
                 {
-                    [styles.variant1]: variant === 1,
-                    [styles.variant2]: variant === 2,
+                    [styles.variant1]: variant === "myBubble",
+                    [styles.variant2]: variant === "someoneBubble",
                 }
             )}
             >

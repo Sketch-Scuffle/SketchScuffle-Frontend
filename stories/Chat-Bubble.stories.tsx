@@ -18,6 +18,6 @@ export const Bubble: Story = {
         owner: "Sketch",
         text: "Hello! good morning",
         date:  new Date('August 19, 1975 23:15:30 GMT+00:00'),
-        variant: 1
+        variant: "myBubble"
     }
 }
