@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { CircularProgressbarWithChildren, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
-interface PropsTimer {
+export interface PropsTimer {
     secondsLeft: number;
 }
 
