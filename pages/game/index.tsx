@@ -2,6 +2,7 @@ import DrawableCanvas from '@/components/atoms/Canvas/DrawableCanvas';
 import {ChangeEvent, useRef, useState} from 'react';
 import {ToolType} from '@/types/drawableCanvas.types';
 import SideMenu from "@/components/atoms/Side-Menu/Side-Menu";
+import Send from "@/components/molecules/Send/Send";
 export default function GamePage () {
     const canvasRef = useRef(null);
     const [disabled, setDisabled] = useState(false);
@@ -48,5 +49,6 @@ export default function GamePage () {
         {/*    <option value={"fill"}>Fill</option>*/}
         {/*</select>*/}
         <SideMenu tabs={tabs} />
+        <Send/>
     </>)
 }
