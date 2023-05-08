@@ -1,0 +1,44 @@
+@import '@/styles/utilties/variables/variables.scss';
+
+.sideMenuWrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: fit-content;
+  height: fit-content;
+}
+.cardWrapper{
+  width: 100%;
+  height: 45px;
+  display: flex;
+  justify-content: space-evenly;
+  gap: 57px;
+  margin-bottom: 40px;
+  font-size: 22px;
+  &>*{
+    margin-top: 18px;
+    cursor: pointer;
+  }
+}
+
+.markSquare{
+
+  width: 68px;
+  height: 11px;
+  background: $gradient;
+  border-radius: 8px 8px 0 0;
+  &.chat{
+    position: relative;
+    top: -18px;
+    left: 115px;
+    transition: left 0.2s ease-in-out;
+  }
+  &.scoreboard{
+    position: relative;
+    top: -18px;
+    left: 255px;
+    transition: left 0.2s ease-in-out;
+  }
+
+}
