@@ -5,8 +5,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: fit-content;
-  height: fit-content;
+
 }
 .cardWrapper{
   width: 100%;
@@ -14,7 +13,7 @@
   display: flex;
   justify-content: space-evenly;
   gap: 57px;
-  margin-bottom: 40px;
+  margin-bottom: 31px;
   font-size: 22px;
   &>*{
     margin-top: 18px;
@@ -27,17 +26,17 @@
   width: 68px;
   height: 11px;
   background: $gradient;
-  border-radius: 8px 8px 0 0;
+  border-radius: 0 0 8px 9px;
   &.chat{
     position: relative;
-    top: -18px;
-    left: 115px;
+    top: -76px;
+    left: -85px;
     transition: left 0.2s ease-in-out;
   }
   &.scoreboard{
     position: relative;
-    top: -18px;
-    left: 255px;
+    top: -76px;
+    left: 65px;
     transition: left 0.2s ease-in-out;
   }
 

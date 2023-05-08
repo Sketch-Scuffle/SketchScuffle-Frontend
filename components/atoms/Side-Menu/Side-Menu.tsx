@@ -14,10 +14,7 @@ export default function SideMenu({ tabs }: PropsWithChildren<SideMenuProps>) {
     return (
         <div className={styles.sideMenuWrapper}>
             <div className={styles.cardWrapper}>
-                <div className={cs(styles.markSquare,{
-                    [styles.chat]: activeTab === "Chat",
-                    [styles.scoreboard]: activeTab === "Scoreboard",
-                })}></div>
+
                     {Object.keys(tabs).map((tab) => (
                         <>
 
@@ -30,6 +27,10 @@ export default function SideMenu({ tabs }: PropsWithChildren<SideMenuProps>) {
                         </>
                     ))}
             </div>
+            <div className={cs(styles.markSquare,{
+                [styles.chat]: activeTab === "Chat",
+                [styles.scoreboard]: activeTab === "Scoreboard",
+            })}></div>
             <div className={styles.tabContent}>{tabs[activeTab]}</div>
         </div>
     );

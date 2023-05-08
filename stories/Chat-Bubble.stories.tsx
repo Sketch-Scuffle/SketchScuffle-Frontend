@@ -4,7 +4,7 @@ import {Meta, StoryObj} from "@storybook/react";
 import ChatBubble from "@/components/atoms/Chat-Bubble/Chat-Bubble";
 
 const meta: Meta<typeof ChatBubble> = {
-    title: 'Chat Bubble',
+    title: '/Atoms/Chat Bubble',
     component: ChatBubble
 }
 
