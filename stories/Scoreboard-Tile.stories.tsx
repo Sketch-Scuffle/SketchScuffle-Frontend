@@ -4,7 +4,7 @@ import {Meta, StoryObj} from "@storybook/react";
 
 
 const meta: Meta<typeof ScoreboardTile> = {
-    title: 'Scoreboard Tile',
+    title: '/Atoms/Scoreboard Tile',
     component: ScoreboardTile
 }
 

@@ -4,7 +4,7 @@ import {Meta, StoryObj} from "@storybook/react";
 
 
 const meta: Meta<typeof Section> = {
-    title: 'Section',
+    title: '/Atoms/Section',
     component: Section
 }
 

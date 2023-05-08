@@ -4,7 +4,7 @@ import {Meta, StoryObj} from "@storybook/react";
 import Input from "@/components/atoms/Input/Input";
 
 const meta: Meta<typeof Input> = {
-    title: 'Input',
+    title: '/Atoms/Input',
     component: Input
 }
 

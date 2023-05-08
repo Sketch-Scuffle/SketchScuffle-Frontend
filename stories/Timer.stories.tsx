@@ -4,7 +4,7 @@ import {Meta, StoryObj} from "@storybook/react";
 
 
 const meta: Meta<typeof Timer> = {
-    title: 'Timer',
+    title: '/Atoms/Timer',
     component: Timer
 }
 
