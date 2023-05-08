@@ -1,8 +1,7 @@
 import DrawableCanvas from '@/components/atoms/Canvas/DrawableCanvas';
 import {ChangeEvent, useRef, useState} from 'react';
 import {ToolType} from '@/types/drawableCanvas.types';
-import SideMenu from "@/components/atoms/Side-Menu/Side-Menu";
-import Send from "@/components/molecules/Send/Send";
+import GameSideBar from "@/components/organisms/Game-Side-Bar";
 export default function GamePage () {
     const canvasRef = useRef(null);
     const [disabled, setDisabled] = useState(false);
@@ -10,10 +9,6 @@ export default function GamePage () {
     const [lineWidth, setLineWidth] = useState(5);
     const [color, setColor] = useState("#000000");
 
-    const tabs = {
-        Chat: "Chat",
-        Scoreboard: "Scoreboard",
-    };
 
     return (<>
         {/*<DrawableCanvas*/}
@@ -48,7 +43,6 @@ export default function GamePage () {
         {/*    <option value={"brush"}>Brush</option>*/}
         {/*    <option value={"fill"}>Fill</option>*/}
         {/*</select>*/}
-        <SideMenu tabs={tabs} />
-        <Send/>
+        <GameSideBar></GameSideBar>
     </>)
 }
