@@ -1,22 +1,23 @@
-import React, {createContext, useState} from "react";
-import {string} from "prop-types";
+import React, { createContext, useState } from "react";
 
-interface User{
-    userId: string | undefined
+interface User {
+  userId: string | undefined;
 }
 
 export const UserContext = createContext<User>({
-    userId: undefined,
+  userId: undefined,
 });
 
-export const UserContextProvider: React.FC<any> = ({children}) => {
-    const [id, setId] = useState('')
-    return(
-        <UserContext.Provider value={
-            {
-                userId=id
-            }
-        }> {children}
+export const UserContextProvider: React.FC<any> = ({ children }) => {
+  const [id, setId] = useState(Math.round(Math.random() * 100 + 1).toString());
+
+  return (
+    <UserContext.Provider
+      value={{
+        userId: id,
+      }}
+    >
+      {children}
     </UserContext.Provider>
-    )
-}
+  );
+};

@@ -2,13 +2,9 @@ import DrawableCanvas from "@/components/atoms/Canvas/DrawableCanvas";
 import { ChangeEvent, useContext, useEffect, useRef, useState } from "react";
 import { ToolType } from "@/types/drawableCanvas.types";
 import GameSideBar from "@/components/organisms/Game-Side-Bar";
-import { axiosInstance } from "@/pages/api/Axios-Instance";
-import { io } from "socket.io-client";
-import { RoomObject } from "@/interfaces/RoomObject";
 import { UserContext, UserContextProvider } from "@/context/User/UserContext";
-import { toKeyAlias } from "@babel/types";
-
 import { GameContext, GameContextProvider } from "@/context/Game/GameContext";
+import { useRouter } from "next/router";
 
 type Game = {
   roomId: string;
@@ -17,27 +13,18 @@ type Game = {
 };
 
 export default function GamePage() {
+  const router = useRouter();
   const canvasRef = useRef(null);
   const [disabled, setDisabled] = useState(false);
   const [toolType, setToolType] = useState(ToolType.Brush);
   const [lineWidth, setLineWidth] = useState(5);
   const [color, setColor] = useState("#000000");
 
-  const { setData } = useContext(GameContext);
-
-  const [roomObject, setRoomObject] = useState();
-  useEffect(() => {
-    const fetchDate = async () => {
-      await axiosInstance
-        .post("/game/create")
-        .then((json) => setData(json.data));
-    };
-    fetchDate().catch(() => console.log("Request error"));
-  }, []);
+  if (!router.query.roomId || Array.isArray(router.query.roomId)) return;
 
   return (
     <UserContextProvider>
-      <GameContextProvider>
+      <GameContextProvider roomId={router.query.roomId}>
         {/*<DrawableCanvas*/}
         {/*    refs={canvasRef}*/}
         {/*    width={1500}*/}

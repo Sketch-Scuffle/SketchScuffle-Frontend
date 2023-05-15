@@ -30,6 +30,7 @@ export default function ScoreboardTile({img, name, points, active, me, drawer, n
             </div>
         </div>
         }
+        {!me &&
             <div className={styles.scoreboardTileWrapper}>
                 <div className={styles.image} style={{backgroundImage: `url(${img})`}}>
                     {active&&
@@ -48,7 +49,7 @@ export default function ScoreboardTile({img, name, points, active, me, drawer, n
                     {points}
                 </div>
             </div>
-
+        }
         </>
     )
 }
